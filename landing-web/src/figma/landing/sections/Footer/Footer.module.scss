@@ -1,0 +1,204 @@
+* {
+  box-sizing: border-box;
+}
+
+.fOoter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  height: auto;
+
+  .cOntenido {
+    display: flex;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: flex-start;
+    align-self: stretch;
+    justify-content: space-between;
+    background: var(--Fondo-Oscuro, #0f0f0f);
+    padding: 60px 120px;
+
+    .bLoque1 {
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      align-items: flex-start;
+      row-gap: 15px;
+
+      .a10001449891Removebg {
+        flex-shrink: 0;
+        width: 109px;
+        height: 37px;
+      }
+
+      .loremIpsumDolorSitAm {
+        flex-shrink: 0;
+        align-self: stretch;
+        letter-spacing: 0;
+        color: var(--Blanco, #ffffff);
+        font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial,
+          Helvetica, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+
+    .bLoque3 {
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      align-items: flex-start;
+      width: 200px;
+      row-gap: 20px;
+
+      .producto {
+        flex-shrink: 0;
+        align-self: stretch;
+        letter-spacing: 0;
+        color: var(--Blanco, #ffffff);
+        font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial,
+          Helvetica, sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .listaEnlaces {
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        align-items: flex-start;
+        align-self: stretch;
+        margin-right: -2px;
+        row-gap: 15px;
+
+        .caracterSticas {
+          flex-shrink: 0;
+          align-self: stretch;
+          letter-spacing: 0;
+          color: var(--Blanco, #ffffff);
+          font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei,
+            Arial, Helvetica, sans-serif;
+          font-size: 14px;
+          font-weight: 300;
+        }
+      }
+    }
+
+    .sEction {
+      display: inline-flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      align-items: flex-start;
+      row-gap: 20px;
+
+      .nuestrasRedesSociale {
+        flex-shrink: 0;
+        width: 218px;
+        letter-spacing: 0;
+        color: var(--Blanco, #ffffff);
+        font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial,
+          Helvetica, sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+      }
+
+      .frame4 {
+        display: flex;
+        flex-shrink: 0;
+        align-items: flex-start;
+        align-self: stretch;
+        column-gap: 20px;
+
+        .instagram {
+          flex-shrink: 0;
+          width: 20px;
+          height: 20px;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+
+  .fOoterbottom {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    align-items: center;
+    align-self: stretch;
+    background: var(--Amarillo, #f8d02d);
+    padding: 10px;
+    row-gap: 10px;
+
+    .a2025BeCardTodosLosD {
+      flex-shrink: 0;
+      align-self: stretch;
+      text-align: center;
+      letter-spacing: 0;
+      color: var(--Gris-Oscuro, #333333);
+      font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial,
+        Helvetica, sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .fOoter {
+    .cOntenido {
+      padding: 50px 16px;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      row-gap: 28px;
+      justify-content: flex-start;
+    }
+
+    .bLoque1,
+    .bLoque3,
+    .sEction {
+      width: 100%;
+      max-width: 520px;
+    }
+
+    .bLoque3 {
+      width: 100%;
+    }
+
+    .sEction {
+      .nuestrasRedesSociale {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) and (min-width: 769px) {
+  .fOoter {
+    .cOntenido {
+      padding: 60px 30px;
+      justify-content: flex-start;
+      gap: 30px 40px;
+    }
+
+    .bLoque1 {
+      flex: 1 1 320px;
+      max-width: 420px;
+    }
+
+    .bLoque3 {
+      flex: 1 1 200px;
+      width: auto;
+    }
+
+    .sEction {
+      flex: 1 1 220px;
+
+      .nuestrasRedesSociale {
+        width: 100%;
+      }
+    }
+  }
+}
