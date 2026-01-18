@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.vite/
+*.log
+
+.figma/
+.trae/
+becard-backend/
+image/
+mobile-app-be-card/
+landing-web/
