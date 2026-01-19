@@ -1,6 +1,14 @@
 import styles from './Stats.module.scss';
 
 export default function Stats() {
+  const logos = [
+    { src: '/image/client-logos/conejo-negro.jpg', alt: 'Conejo Negro' },
+    { src: '/image/client-logos/perras.jpg', alt: 'El Perras' },
+    { src: '/image/client-logos/humulus.jpg', alt: 'Humulus' },
+    { src: '/image/client-logos/calaveras-diablitos.jpg', alt: 'Calaveras & Diablitos' },
+    { src: '/image/client-logos/de-castillo.jpg', alt: 'De Castillo' }
+  ];
+
   return (
     <section id="estadisticas" className={styles.qUenosdiferencia4}>
       <div className={styles.tItulotexto4}>
@@ -24,15 +32,24 @@ export default function Stats() {
       </div>
       <div className={styles.frame480957048}>
         <p className={styles.marcasQueConfAnEnBeC}>Marcas que confían en BeCard</p>
-        <div className={styles.mArcas}>
-          <img src="/image/mkhdre42-zi0nb74.svg" className={styles.logoipsum4021} />
-          <img src="/image/mkhdre42-4egn922.svg" className={styles.logoipsum4021} />
-          <img src="/image/mkhdre42-a3be38j.svg" className={styles.logoipsum4021} />
-          <img src="/image/mkhdre42-20corsj.svg" className={styles.logoipsum4021} />
-          <img src="/image/mkhdre42-z1x5yb2.svg" className={styles.logoipsum4021} />
+        <div className={styles.marquee} aria-label="Marcas que confían en BeCard">
+          <div className={styles.marqueeTrack}>
+            {[...logos, ...logos].map((logo, index) => (
+              <div className={styles.logoItem} key={`${logo.src}-${index}`}>
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className={styles.logo}
+                  loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                  }}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 }
-

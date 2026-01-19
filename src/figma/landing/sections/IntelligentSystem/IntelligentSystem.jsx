@@ -1,17 +1,26 @@
 import styles from './IntelligentSystem.module.scss';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 
 export default function IntelligentSystem() {
   const logos = useMemo(
     () => [
-      '/image/mkk4q0z2-xenobbe.svg',
-      '/image/mkk4q0z2-fivdn11.svg',
-      '/image/mkk4q0z2-7uio3wo.svg',
-      '/image/mkk4q0z2-8tshpl3.svg',
-      '/image/mkk4q0z2-113pmgt.svg'
+      { src: '/image/client-logos/conejo-negro.jpg', alt: 'Conejo Negro' },
+      { src: '/image/client-logos/perras.jpg', alt: 'El Perras' },
+      { src: '/image/client-logos/humulus.jpg', alt: 'Humulus' },
+      { src: '/image/client-logos/calaveras-diablitos.jpg', alt: 'Calaveras & Diablitos' },
+      { src: '/image/client-logos/de-castillo.jpg', alt: 'De Castillo' }
     ],
     []
   );
+  const [failedIndexes, setFailedIndexes] = useState(() => new Set());
+  const handleLogoError = (index) => () => {
+    setFailedIndexes((prev) => {
+      if (prev.has(index)) return prev;
+      const next = new Set(prev);
+      next.add(index);
+      return next;
+    });
+  };
 
   return (
     <section id="estadisticas" className={styles.qUenosdiferencia}>
@@ -40,9 +49,25 @@ export default function IntelligentSystem() {
         <p className={styles.marcasQueConfAnEnBeC}>Marcas que ya trabajan con beCard</p>
         <div className={styles.mArcas}>
           <div className={styles.mArcasTrack}>
-            {logos.concat(logos).map((src, index) => (
-              <img key={`${src}-${index}`} src={src} className={styles.logoipsum4021} />
-            ))}
+            {logos.concat(logos).map((logo, index) => {
+              const baseIndex = index % logos.length;
+              const failed = failedIndexes.has(baseIndex);
+              return (
+                <div className={styles.logoItem} key={`${logo.src}-${index}`}>
+                  {failed ? (
+                    <span className={styles.logoFallback}>{logo.alt}</span>
+                  ) : (
+                    <img
+                      src={logo.src}
+                      alt={logo.alt}
+                      className={styles.logo}
+                      loading="lazy"
+                      onError={handleLogoError(baseIndex)}
+                    />
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
